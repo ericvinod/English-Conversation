@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Fun English Flashcards for Kids</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home Screen -->
+    <section id="home-screen" class="screen active">
+      <header class="app-header">
+        <h1 class="title-bounce">English Conversation</h1>
+        <p class="subtitle">Good Habits & Good Manners</p>
+      </header>
+      <div class="category-grid">
+        <button class="category-card" data-category="home" aria-label="Good Habits at Home">
+          <div class="cat-img-wrap">
+            <img src="images/home/wake-up.png" alt="Good Habits at Home" class="cat-preview float-anim">
+          </div>
+          <span class="cat-label">Good Habits at Home</span>
+          <span class="cat-count">8 cards</span>
+        </button>
+        <button class="category-card" data-category="school" aria-label="Good Manners at School">
+          <div class="cat-img-wrap">
+            <img src="images/school/be-on-time.png" alt="Good Manners at School" class="cat-preview float-anim">
+          </div>
+          <span class="cat-label">Good Manners at School</span>
+          <span class="cat-count">8 cards</span>
+        </button>
+      </div>
+      <div class="progress-summary">
+        <p>Your Progress: <span id="total-progress">0</span> / 16 learned</p>
+      </div>
+    </section>
+
+    <!-- Category / Learn Screen -->
+    <section id="learn-screen" class="screen">
+      <header class="learn-header">
+        <button id="back-home" class="nav-btn">Back</button>
+        <h2 id="category-title">Category</h2>
+        <button id="start-revise" class="nav-btn accent">Revise</button>
+      </header>
+      <div class="progress-bar-wrap">
+        <div id="category-progress-bar" class="progress-bar"></div>
+        <span id="category-progress-text">0 / 8</span>
+      </div>
+      <div class="card-carousel">
+        <button id="prev-card" class="carousel-btn">Prev</button>
+        <div class="flashcard-stage">
+          <div id="flashcard" class="flashcard">
+            <div class="card-inner">
+              <img id="card-image" src="" alt="Flashcard" class="card-img">
+              <div class="card-text-area">
+                <p id="card-sentence" class="sentence"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="next-card" class="carousel-btn">Next</button>
+      </div>
+      <div class="controls">
+        <button id="speak-sentence" class="action-btn speak-btn">
+          Read Entire Sentence
+        </button>
+        <button id="speak-slow" class="action-btn">
+          Slow Pronunciation
+        </button>
+        <button id="mark-learned" class="action-btn reward-btn">
+          I Learned It!
+        </button>
+      </div>
+      <div id="learned-feedback" class="feedback hidden">Great job!</div>
+    </section>
+
+    <!-- Revise / Quiz Screen -->
+    <section id="revise-screen" class="screen">
+      <header class="learn-header">
+        <button id="back-to-learn" class="nav-btn">Back</button>
+        <h2>Revision Time!</h2>
+        <span id="revise-progress">1 / 8</span>
+      </header>
+      <div class="revise-area">
+        <p class="revise-prompt">Look at the picture. What is the good habit / manner?</p>
+        <div class="revise-card-wrap">
+          <img id="revise-image" src="" alt="Revision card" class="revise-img pulse-anim">
+        </div>
+        <div id="revise-options" class="options-grid">
+          <!-- Options filled by JS -->
+        </div>
+        <button id="speak-revise" class="action-btn speak-btn">
+          Read Entire Sentence
+        </button>
+      </div>
+      <div id="revise-feedback" class="feedback hidden"></div>
+    </section>
+
+    <!-- Completion / Reward Screen -->
+    <section id="reward-screen" class="screen">
+      <div class="reward-content">
+        <h2 class="celebrate-title">Wonderful!</h2>
+        <p id="reward-message">You completed all cards!</p>
+        <div class="reward-images">
+          <!-- Animated completed cards will appear here -->
+        </div>
+        <button id="back-from-reward" class="action-btn reward-btn">Play Again</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
